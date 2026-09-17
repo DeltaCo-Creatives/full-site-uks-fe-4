@@ -1,0 +1,87 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Plus Jakarta Sans", system-ui, sans-serif;
+  --font-display: "Fredoka", "Plus Jakarta Sans", system-ui, sans-serif;
+
+  /* Brand colors mirrored from the live appConfig of uks.kemendikdasmen.go.id */
+  --color-brand-50: #eefaf0;
+  --color-brand-100: #d7f2dc;
+  --color-brand-200: #b0e5ba;
+  --color-brand-300: #7fd18f;
+  --color-brand-400: #57ba69;
+  --color-brand-500: #4caf50;
+  --color-brand-600: #398a41;
+  --color-brand-700: #2e6d35;
+  --color-brand-800: #26562c;
+  --color-brand-900: #1f4625;
+
+  --color-sky-50: #eaf2fe;
+  --color-sky-100: #d1e3fd;
+  --color-sky-200: #a3c7fb;
+  --color-sky-300: #6fa5f6;
+  --color-sky-400: #4088ef;
+  --color-sky-500: #1a73e8;
+  --color-sky-600: #145bc0;
+  --color-sky-700: #10469a;
+  --color-sky-800: #0e3a7c;
+  --color-sky-900: #0d2f63;
+
+  --color-sun-50: #fff8e8;
+  --color-sun-100: #ffedbf;
+  --color-sun-200: #ffdd85;
+  --color-sun-300: #ffc94a;
+  --color-sun-400: #ffb81f;
+  --color-sun-500: #f79f05;
+  --color-sun-600: #d17f03;
+  --color-sun-700: #a56004;
+
+  --color-ink-50: #f5f6f5;
+  --color-ink-100: #e6e8e6;
+  --color-ink-400: #6b7368;
+  --color-ink-600: #454d43;
+  --color-ink-800: #22271f;
+  --color-ink-900: #14170f;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-ink-50 text-ink-800 font-sans antialiased;
+    font-feature-settings: "ss01" 1;
+  }
+
+  ::selection {
+    @apply bg-brand-300/50 text-ink-900;
+  }
+}
+
+@layer utilities {
+  .container-page {
+    @apply mx-auto w-full max-w-7xl px-5 sm:px-8;
+  }
+
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+}
+
+@keyframes publikasi-progress {
+  from {
+    transform: scaleX(0);
+  }
+  to {
+    transform: scaleX(1);
+  }
+}

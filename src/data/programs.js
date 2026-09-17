@@ -1,0 +1,92 @@
+// Copied from the live rendered content of https://portal-uks.demo.or.id/{7kaih,mbg,ckg,asri}
+// (production uks.kemendikdasmen.go.id does not have dedicated pages for these four flagship
+// programs — they route to external dashboards/partners instead — so the descriptive copy here
+// is sourced from the sibling demo deployment of the same portal).
+
+export const kaih = {
+  title: "7 Kebiasaan Anak Indonesia Hebat",
+  shortTitle: "7KAIH",
+  intro:
+    "Gerakan Tujuh Kebiasaan Anak Indonesia Hebat (7KAIH) adalah gerakan penguatan karakter yang mengajak setiap anak Indonesia membiasakan tujuh kebiasaan baik setiap hari.",
+  context:
+    "Gerakan ini lahir untuk menjawab tantangan zaman — mulai dari derasnya arus teknologi, gaya hidup serba instan, hingga menurunnya karakter dan kesehatan fisik-psikis anak muda. Melalui pembiasaan tujuh kebiasaan ini, 7KAIH ingin membentuk generasi yang sehat fisik, mental, dan spiritual; cerdas dan kreatif; serta peduli dan bertanggung jawab secara sosial — langkah nyata menuju Generasi Emas Indonesia 2045.",
+  image: "/images/program/7kaih.jpeg",
+  habits: [
+    { title: "Bangun Pagi", description: "Mengajarkan nilai disiplin, keseimbangan, produktivitas, dan menghargai waktu yang berkontribusi pada kualitas hidup yang lebih baik." },
+    { title: "Beribadah", description: "Bukan sekadar ritual, tetapi menyimpan makna spiritual dan moral yang membentuk kepribadian serta hubungan harmonis dengan Tuhan, alam, dan sesama." },
+    { title: "Berolahraga", description: "Lebih dari menjaga kesehatan fisik — membangun disiplin, keseimbangan, ketahanan mental, dan kehidupan yang lebih terarah dan bermakna." },
+    { title: "Makan Sehat dan Bergizi", description: "Memenuhi kebutuhan nutrisi tubuh dengan prinsip gizi seimbang untuk mendukung kehidupan yang sehat, seimbang, dan bermakna." },
+    { title: "Gemar Belajar", description: "Mengajak setiap anak untuk terus tumbuh dalam pemahaman, karakter, dan kearifan." },
+    { title: "Bermasyarakat", description: "Mendorong setiap anak hidup bersama secara harmonis dan berkontribusi terhadap kesejahteraan bersama." },
+    { title: "Tidur Cepat", description: "Aspek penting kehidupan yang berdampak pada kesehatan fisik, kesejahteraan mental, serta kehidupan spiritual dan sosial." },
+  ],
+};
+
+export const mbg = {
+  title: "Makan Bergizi Gratis",
+  shortTitle: "MBG",
+  intro:
+    "Makan Bergizi Gratis (MBG) adalah program nasional pemberian makanan bergizi secara gratis dan berkelanjutan kepada kelompok sasaran prioritas di seluruh Indonesia, sebagai upaya pemerintah memenuhi kebutuhan gizi masyarakat sekaligus membangun fondasi generasi yang sehat dan berkualitas.",
+  context:
+    "Program ini dilaksanakan berdasarkan Peraturan Presiden Nomor 83 Tahun 2024, di bawah koordinasi Badan Gizi Nasional (BGN), melalui Satuan Pelayanan Pemenuhan Gizi (SPPG) yang tersebar di berbagai daerah dengan mengutamakan bahan pangan lokal.",
+  image: "/images/program/mbg.jpeg",
+  goals: [
+    { title: "Status Gizi Baik", description: "Memastikan setiap individu generasi mendatang memiliki status gizi optimal sebagai modal kesehatan dan kecerdasan." },
+    { title: "Morbiditas & Mortalitas Rendah", description: "Menurunnya angka kesakitan dan kematian, terutama pada ibu, bayi, dan anak-anak." },
+    { title: "Partisipasi Sekolah Tinggi", description: "Menjamin anak-anak Indonesia dapat mengakses pendidikan dengan baik, didukung gizi yang memadai." },
+    { title: "Penurunan Biaya Pengobatan", description: "Generasi yang sehat menekan beban biaya pengobatan bagi keluarga dan negara." },
+    { title: "Peningkatan PDB Jangka Panjang", description: "Generasi sehat dan produktif berkontribusi pada pertumbuhan ekonomi yang berkelanjutan." },
+  ],
+  sasaran: ["Peserta Didik", "Anak-Anak", "Ibu Hamil dan Menyusui"],
+  externalLinks: [
+    { title: "Dasbor MBG", href: "https://mbg.pdm.kemendikdasmen.go.id/portal" },
+    { title: "Badan Gizi Nasional", href: "https://www.bgn.go.id/" },
+  ],
+};
+
+export const ckg = {
+  title: "Cek Kesehatan Gratis (CKG) Sekolah",
+  shortTitle: "CKG",
+  tagline: "Sekolah Mulai, Cek Kesehatan Gratis Jangan Terlewat!",
+  intro:
+    "Cek Kesehatan Gratis (CKG) Sekolah adalah pemeriksaan kesehatan gratis dari pemerintah untuk seluruh peserta didik kelas 1–12 atau sederajat (termasuk pesantren), yang dilaksanakan setiap tahun ajaran baru. Bukan hal yang perlu ditakuti — CKG Sekolah justru jadi langkah positif untuk mendeteksi masalah kesehatan sejak dini, sebelum berkembang jadi lebih serius, supaya siswa-siswi bisa belajar dan tumbuh dengan lebih optimal.",
+  context:
+    "Program ini bagian dari Cek Kesehatan Gratis (CKG) yang lebih luas, mengedepankan upaya promotif dan preventif — periksa hari ini, sehat di masa depan.",
+  image: "/images/program/ckg.png",
+  facts: [
+    "Gratis untuk seluruh peserta didik kelas 1–12 atau sederajat, termasuk pesantren.",
+    "Dilaksanakan mulai tahun ajaran baru, bulan Juli, setiap tahunnya.",
+    "Pemeriksaan dilakukan langsung di sekolah/madrasah/pesantren oleh petugas Puskesmas bersama guru.",
+    "Jenis pemeriksaan disesuaikan dengan jenjang pendidikan dan usia peserta didik.",
+    "Hasil pemeriksaan dapat diakses melalui SATUSEHAT Mobile atau WhatsApp.",
+    "Pelaksanaan CKG dilakukan atas sepengetahuan dan izin orang tua/wali.",
+  ],
+  legalBasis:
+    "Seluruh ketentuan pelaksanaan CKG Sekolah — mulai dari paket pemeriksaan, tahapan penyelenggaraan, pendanaan, hingga monitoring dan evaluasi — diatur lengkap dalam Keputusan Menteri Kesehatan Nomor HK.01.07/MENKES/770/2025 tentang Petunjuk Teknis Cek Kesehatan Gratis Sekolah.",
+  packages: [
+    { jenjang: "SD/MI/Pesantren (Kelas 1–6)", cakupan: "Status gizi, riwayat imunisasi (kelas 1), telinga, mata, gigi, kesehatan jiwa, tekanan darah, gula darah, TBC, Hepatitis B; ditambah merokok, kebugaran & kesehatan reproduksi (kelas 4–6)." },
+    { jenjang: "SMP/MTs/Pesantren (Kelas 7–9)", cakupan: "Semua pemeriksaan jenjang SD, ditambah anemia (kelas 7), talasemia, Hepatitis C, riwayat imunisasi HPV (kelas 9 putri)." },
+    { jenjang: "SMA/SMK/MA/Pesantren (Kelas 10–12)", cakupan: "Sama seperti jenjang SMP, dengan pemeriksaan anemia untuk peserta didik putri kelas 10." },
+  ],
+  steps: [
+    { label: "H-7 Sebelum Pelaksanaan", title: "Koordinasi & Sosialisasi", description: "Puskesmas berkoordinasi dengan sekolah, menyampaikan tata cara pendaftaran dan kuesioner skrining mandiri kepada peserta didik/orang tua." },
+    { label: "H-2 Sebelum Pelaksanaan", title: "Pengecekan Kesiapan", description: "Puskesmas mengecek jumlah pendaftar dan kelengkapan kuesioner, lalu menyiapkan alat kesehatan yang dibutuhkan." },
+    { label: "Hari Pelaksanaan", title: "Pelaksanaan Pemeriksaan", description: "Peserta didik mengikuti pemeriksaan sesuai paket jenjangnya; tenaga kesehatan mencatat hasil secara real-time melalui SATUSEHAT IndonesiaKu." },
+    { label: "Setelah Pelaksanaan", title: "Hasil & Tindak Lanjut", description: "Hasil pemeriksaan disampaikan langsung atau dikirim via WhatsApp/SATUSEHAT Mobile, lengkap dengan edukasi dan rujukan bila diperlukan." },
+  ],
+};
+
+export const asri = {
+  title: "Gerakan Sekolah ASRI",
+  shortTitle: "ASRI",
+  intro:
+    "Gerakan Sekolah ASRI adalah program nasional yang mengajak seluruh warga sekolah — murid, guru, tenaga kependidikan, hingga orang tua — untuk bersama-sama menciptakan lingkungan belajar yang nyaman, bersih, hijau, dan aman.",
+  context:
+    "Gerakan ini merupakan bagian dari upaya pembinaan Usaha Kesehatan Sekolah/Madrasah (UKS/M) yang menekankan pada kebersihan, keindahan, dan kenyamanan lingkungan sekolah.",
+  pillars: [
+    { letter: "A", title: "Aman", description: "Bebas dari perundungan (bullying), infrastruktur yang tahan bencana, serta bekal keamanan digital untuk murid." },
+    { letter: "S", title: "Sehat", description: "Gaya hidup sehat lewat kebiasaan cuci tangan, olahraga rutin, kantin sehat, dan kawasan bebas rokok." },
+    { letter: "R", title: "Resik", description: "Budaya menjaga kebersihan lewat piket kelas, pemilahan sampah, daur ulang, hingga bank sampah sekolah." },
+    { letter: "I", title: "Indah", description: "Penataan lingkungan fisik agar rapi, ruang terbuka hijau, dan pembiasaan tertib antre." },
+  ],
+};
