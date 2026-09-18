@@ -1,8 +1,8 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import { Link } from "react-router-dom";
-import { LayoutGrid, ArrowDown } from "lucide-react";
+import { LayoutGrid, ArrowDown, Newspaper, ArrowUpRight } from "lucide-react";
 import { gsap } from "../../lib/gsap";
-import { heroSlides } from "../../data/home";
+import { heroSlides, latestBerita } from "../../data/home";
 import { site } from "../../data/site";
 import { useExplore } from "../../context/ExploreContext";
 
@@ -11,22 +11,43 @@ export default function Hero() {
   const imgRefs = useRef([]);
   const openExplore = useExplore();
 
+  // Promo slides plus one news slide built from the latest article — unlike the
+  // source design, this slide carries a visible "Berita" label, title, and CTA
+  // so it's obviously the one slide that's clickable.
+  const slides = useMemo(() => {
+    const news = latestBerita[0];
+    const newsSlide = news
+      ? [
+          {
+            image: news.gambar,
+            type: "berita",
+            title: news.judul,
+            href: `/informasi/berita/${news.slug}`,
+          },
+        ]
+      : [];
+    return [...heroSlides, ...newsSlide];
+  }, []);
+
   useEffect(() => {
     const el = imgRefs.current[index];
     if (el) {
       gsap.fromTo(el, { scale: 1.08 }, { scale: 1, duration: 6, ease: "power1.out" });
     }
-    const t = setInterval(() => setIndex((i) => (i + 1) % heroSlides.length), 5000);
+    const t = setInterval(() => setIndex((i) => (i + 1) % slides.length), 5000);
     return () => clearInterval(t);
-  }, [index]);
+  }, [index, slides.length]);
+
+  const current = slides[index];
+  const isNews = current?.type === "berita";
 
   return (
     <section className="relative flex h-[92vh] min-h-[560px] w-full items-center overflow-hidden bg-ink-900">
-      {heroSlides.map((src, i) => (
+      {slides.map((slide, i) => (
         <img
-          key={src}
+          key={slide.image}
           ref={(el) => (imgRefs.current[i] = el)}
-          src={src}
+          src={slide.image}
           alt=""
           className={`absolute inset-0 h-full w-full object-cover transition-opacity duration-[1200ms] ease-out ${
             i === index ? "opacity-100" : "opacity-0"
@@ -37,31 +58,52 @@ export default function Hero() {
       <div className="absolute inset-0 bg-gradient-to-r from-brand-900/50 via-transparent to-transparent" />
 
       <div className="container-page relative">
-        <div className="max-w-2xl">
-          <p className="mb-4 inline-flex items-center rounded-full bg-white/10 px-4 py-1.5 text-xs font-semibold uppercase tracking-wider text-white/90 ring-1 ring-white/20 backdrop-blur-sm">
-            {site.ministry}
-          </p>
-          <h1 className="font-display text-4xl font-semibold leading-[1.08] text-balance text-white sm:text-5xl md:text-6xl">
-            Sekolah Sehat, <span className="text-brand-300">Anak Indonesia</span> Hebat
-          </h1>
-          <p className="mt-5 max-w-lg text-balance text-white/85 sm:text-lg">{site.metaDescription}</p>
-
-          <div className="mt-9 flex flex-wrap items-center gap-3">
-            <button
-              onClick={openExplore}
-              className="group flex items-center gap-2 rounded-full bg-brand-500 px-6 py-3.5 font-semibold text-white shadow-xl shadow-brand-900/30 transition hover:-translate-y-0.5 hover:bg-brand-400"
-            >
-              <LayoutGrid size={18} />
-              Jelajahi Portal
-            </button>
-            <Link
-              to="/informasi/berita"
-              className="rounded-full bg-white/10 px-6 py-3.5 font-semibold text-white ring-1 ring-white/25 backdrop-blur-sm transition hover:bg-white/20"
-            >
-              Berita Terbaru
-            </Link>
+        {isNews ? (
+          <div className="max-w-2xl">
+            <p className="mb-4 inline-flex items-center gap-1.5 rounded-full bg-brand-500 px-4 py-1.5 text-xs font-semibold uppercase tracking-wider text-white shadow-lg shadow-brand-900/30">
+              <Newspaper size={13} />
+              Berita
+            </p>
+            <h1 className="font-display text-3xl font-semibold leading-[1.15] text-balance text-white sm:text-4xl md:text-5xl">
+              {current.title}
+            </h1>
+            <div className="mt-9 flex flex-wrap items-center gap-3">
+              <Link
+                to={current.href}
+                className="group flex items-center gap-2 rounded-full bg-brand-500 px-6 py-3.5 font-semibold text-white shadow-xl shadow-brand-900/30 transition hover:-translate-y-0.5 hover:bg-brand-400"
+              >
+                Pelajari Selengkapnya
+                <ArrowUpRight size={18} className="transition group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+              </Link>
+            </div>
           </div>
-        </div>
+        ) : (
+          <div className="max-w-2xl">
+            <p className="mb-4 inline-flex items-center rounded-full bg-white/10 px-4 py-1.5 text-xs font-semibold uppercase tracking-wider text-white/90 ring-1 ring-white/20 backdrop-blur-sm">
+              {site.ministry}
+            </p>
+            <h1 className="font-display text-4xl font-semibold leading-[1.08] text-balance text-white sm:text-5xl md:text-6xl">
+              Sekolah Sehat, <span className="text-brand-300">Anak Indonesia</span> Hebat
+            </h1>
+            <p className="mt-5 max-w-lg text-balance text-white/85 sm:text-lg">{site.metaDescription}</p>
+
+            <div className="mt-9 flex flex-wrap items-center gap-3">
+              <button
+                onClick={openExplore}
+                className="group flex items-center gap-2 rounded-full bg-brand-500 px-6 py-3.5 font-semibold text-white shadow-xl shadow-brand-900/30 transition hover:-translate-y-0.5 hover:bg-brand-400"
+              >
+                <LayoutGrid size={18} />
+                Jelajahi Portal
+              </button>
+              <Link
+                to="/informasi/berita"
+                className="rounded-full bg-white/10 px-6 py-3.5 font-semibold text-white ring-1 ring-white/25 backdrop-blur-sm transition hover:bg-white/20"
+              >
+                Berita Terbaru
+              </Link>
+            </div>
+          </div>
+        )}
       </div>
 
       <div className="absolute bottom-7 left-1/2 hidden -translate-x-1/2 flex-col items-center gap-2 text-white/60 sm:flex">
@@ -70,7 +112,7 @@ export default function Hero() {
       </div>
 
       <div className="absolute bottom-7 right-5 flex gap-1.5 sm:right-8">
-        {heroSlides.map((_, i) => (
+        {slides.map((_, i) => (
           <button
             key={i}
             onClick={() => setIndex(i)}

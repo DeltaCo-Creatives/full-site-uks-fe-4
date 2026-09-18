@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { ArrowUpRight } from "lucide-react";
+import { ArrowUpRight, Leaf } from "lucide-react";
 import Reveal from "../ui/Reveal";
 import SectionHeading from "../ui/SectionHeading";
 import { programPrioritas } from "../../data/home";
@@ -11,17 +11,23 @@ export default function ProgramPrioritasSection() {
         <SectionHeading
           eyebrow="Fokus Saat Ini"
           title="Program Prioritas"
-          description="Tiga program nasional yang sedang digencarkan untuk mewujudkan generasi sekolah yang sehat."
+          description="Empat program nasional yang sedang digencarkan untuk mewujudkan generasi sekolah yang sehat."
         />
-        <div className="grid gap-6 md:grid-cols-3">
+        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
           {programPrioritas.map((p, i) => (
             <Reveal key={p.href} delay={i * 0.1}>
               <Link to={p.href} className="group relative block h-90 overflow-hidden rounded-3xl">
-                <img
-                  src={p.image}
-                  alt={p.title}
-                  className="h-full w-full object-cover transition duration-700 group-hover:scale-110"
-                />
+                {p.image ? (
+                  <img
+                    src={p.image}
+                    alt={p.title}
+                    className="h-full w-full object-cover transition duration-700 group-hover:scale-110"
+                  />
+                ) : (
+                  <div className="flex h-full w-full items-center justify-center bg-gradient-to-br from-brand-600 to-ink-900 transition duration-700 group-hover:scale-110">
+                    <Leaf size={72} className="text-white/15" strokeWidth={1.25} />
+                  </div>
+                )}
                 <div className="absolute inset-0 bg-gradient-to-t from-ink-900 via-ink-900/40 to-transparent" />
                 <div className="absolute inset-x-0 bottom-0 p-6">
                   <h3 className="font-display text-xl font-semibold text-white text-balance">{p.title}</h3>

@@ -2,17 +2,20 @@
 // https://uks.kemendikdasmen.go.id/ (Home/Index props). Images are mirrored locally in /public/images.
 
 export const heroSlides = [
-  "/images/hero/hero-1.jpg",
-  "/images/hero/hero-2.png",
-  "/images/hero/hero-3.png",
-  "/images/hero/hero-4.png",
+  { image: "/images/hero/hero-1.jpg", type: "promo" },
+  { image: "/images/hero/hero-2.png", type: "promo" },
+  { image: "/images/hero/hero-3.png", type: "promo" },
+  { image: "/images/hero/hero-4.png", type: "promo" },
 ];
+
+// Fifth slide is a news item pulled from latestBerita[0], appended below so the
+// promo slides above stay a simple, easily-reordered list.
 
 export const triasPillars = [
   {
     number: 1,
     title: "Pendidikan Kesehatan",
-    href: "/trias/pendidikan-kesehatan",
+    href: "/uksm/trias#pendidikan-kesehatan",
     indicatorCount: 7,
     description:
       "Berfokus meningkatkan pengetahuan, sikap, perilaku, dan keterampilan hidup sehat, melalui pendekatan intrakurikuler, ekstrakurikuler, dan kokurikuler.",
@@ -20,7 +23,7 @@ export const triasPillars = [
   {
     number: 2,
     title: "Pelayanan Kesehatan",
-    href: "/trias/pelayanan-kesehatan",
+    href: "/uksm/trias#pelayanan-kesehatan",
     indicatorCount: 4,
     description:
       "Upaya promotif, preventif, kuratif, dan rehabilitatif melalui skrining kesehatan, suplementasi, P3K/P3P, dan imunisasi.",
@@ -28,20 +31,29 @@ export const triasPillars = [
   {
     number: 3,
     title: "Pembinaan Lingkungan Sekolah Sehat",
-    href: "/trias/pembinaan-lingkungan",
+    href: "/uksm/trias#pembinaan-lingkungan",
     indicatorCount: 5,
     description:
       "Menciptakan lingkungan sekolah yang sehat secara fisik, sosial, dan emosional lewat sanitasi, kantin sehat, dan pekarangan sekolah.",
   },
 ];
 
-// programCards from props.programCards (Program Prioritas section)
+// programCards from props.programCards (Program Prioritas section).
+// Dev's four cards (7KAIH, ASRI, MBG, CKG) point at broken/external URLs —
+// ours link to the internal program pages. ASRI has no dedicated photo in
+// public/images/program yet, so its card renders without `image`.
 export const programPrioritas = [
   {
     title: "7 Kebiasaan Anak Indonesia Hebat (7KAIH)",
     href: "/program/7kaih",
     image: "/images/program/7kaih.jpeg",
     blurb: "Tujuh kebiasaan baik harian menuju Generasi Emas Indonesia 2045.",
+  },
+  {
+    title: "Gerakan Sekolah ASRI",
+    href: "/program/asri",
+    image: null,
+    blurb: "Aman, Sehat, Resik, Indah — mewujudkan lingkungan belajar yang nyaman untuk seluruh warga sekolah.",
   },
   {
     title: "Makan Bergizi Gratis (MBG)",
@@ -168,6 +180,14 @@ export const latestVideo = [
   { judul: "Penguatan Peran UKS di Satuan Pendidikan - Karawang 2025", tanggal: "2025-11-10", cover: "https://i.ytimg.com/vi/iWr14i9aO2k/hqdefault.jpg", url: "https://www.youtube.com/watch?v=iWr14i9aO2k" },
   { judul: "Penguatan Peran UKS Jenjang SMP - Medan 2025", tanggal: "2025-10-21", cover: "https://i.ytimg.com/vi/qdsgqJSa8s0/hqdefault.jpg", url: "https://www.youtube.com/watch?v=qdsgqJSa8s0" },
   { judul: "Lagu Tujuh Kebiasaan Anak Indonesia Hebat", tanggal: "2025-01-16", cover: "https://i.ytimg.com/vi/d1NwNLFT94g/hqdefault.jpg", url: "https://www.youtube.com/watch?v=d1NwNLFT94g" },
+];
+
+// Tautan Terkait section — 4 ministry logos, linking out to each ministry's homepage.
+export const ministryLinks = [
+  { nama: "Kementerian Pendidikan Dasar dan Menengah", logo: "/images/partners/kemdikbudristek.png", url: "https://www.kemendikdasmen.go.id/" },
+  { nama: "Kementerian Kesehatan", logo: "/images/partners/kemenkes.png", url: "https://www.kemkes.go.id/" },
+  { nama: "Kementerian Agama", logo: "/images/partners/kemenag.png", url: "https://kemenag.go.id/" },
+  { nama: "Kementerian Dalam Negeri", logo: "/images/partners/kemendagri.png", url: "https://www.kemendagri.go.id/" },
 ];
 
 // props.clients — 21 real partners
