@@ -104,42 +104,37 @@ export const mitraPages = {
       }
     ]
   },
-  "pendaftaranMitra": {
-    "nama": "Pendaftaran Mitra",
-    "blocks": [
-      {
-        "type": "p",
-        "text": "Halaman Pendaftaran Mitra sedang dikembangkan."
-      }
-    ]
+  "tentangMitra": {
+    "nama": "Tentang Mitra UKS/M",
+    "bidangUsaha": [
+      "Dunia Industri",
+      "Industri Pendidikan",
+      "Organisasi Masyarakat",
+      "Yayasan",
+      "Perusahaan Komunikasi",
+      "Badan PBB",
+      "dan lainnya"
+    ],
+    "bentukDukungan": [
+      "Melakukan pendampingan implementasi Penguatan Peran UKS atau Sekolah Sehat di satuan dampingan",
+      "Pemberian bantuan sarana dan prasarana",
+      "Dukungan untuk publikasi dan komunikasi",
+      "Peningkatan Kapasitas Pendidik dan Peserta Didik"
+    ],
+    "pendaftaran": {
+      "status": "Halaman Pendaftaran Mitra sedang dikembangkan."
+    }
   },
   "mitraKami": {
     "nama": "Mitra Kami",
     "blocks": [
       {
         "type": "h2",
-        "text": "Mitra UKS"
+        "text": "Direktori Mitra"
       },
       {
         "type": "p",
-        "text": "Bidang Usaha Mitra:"
-      },
-      {
-        "type": "p",
-        "text": "Dunia Industri, Industri Pendidikan, Organisasi Masyarakat, Yayasan, Perusahaan Komunikasi, Badan PBB, dll"
-      },
-      {
-        "type": "p",
-        "text": "Bentuk dukungan Mitra:"
-      },
-      {
-        "type": "ul",
-        "items": [
-          "Melakukan pendampingan implementasi Penguatan Peran UKS atau Sekolah Sehat di satuan dampingan",
-          "Pemberian bantuan sarana dan prasarana",
-          "Dukungan untuk publikasi dan komunikasi",
-          "Peningkatan Kapasitas Pendidik dan Peserta Didik"
-        ]
+        "text": "Mitra yang telah berkolaborasi bersama UKS/M, dikelompokkan per tahun kerja sama."
       },
       {
         "type": "p",
@@ -169,10 +164,6 @@ export const mitraPages = {
           "Universitas Pendidikan Indonesia (UPI)",
           "Center of Excellence"
         ]
-      },
-      {
-        "type": "p",
-        "text": "Mitra 2025"
       },
       {
         "type": "p",
