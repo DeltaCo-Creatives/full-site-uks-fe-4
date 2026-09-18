@@ -40,7 +40,9 @@ export default function Layout() {
   useEffect(() => {
     const onKey = (e) => {
       const tag = document.activeElement?.tagName;
-      if (e.key === "/" && tag !== "INPUT" && tag !== "TEXTAREA") {
+      // Leave "/" alone while a dialog (e.g. the PDF viewer) is open.
+      const dialogOpen = document.querySelector('[aria-modal="true"]');
+      if (e.key === "/" && tag !== "INPUT" && tag !== "TEXTAREA" && !dialogOpen) {
         e.preventDefault();
         setExploreOpen(true);
       }
