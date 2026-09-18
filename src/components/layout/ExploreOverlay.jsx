@@ -16,7 +16,7 @@ import {
 } from "lucide-react";
 import { gsap } from "../../lib/gsap";
 import { navSections, quickLinks } from "../../data/nav";
-import { buildSearchIndex } from "../../lib/searchIndex";
+import { buildSearchIndex, searchEntries } from "../../lib/searchIndex";
 import { subItemHref } from "../../lib/anchors";
 
 const ICONS = {
@@ -44,12 +44,8 @@ export default function ExploreOverlay({ open, onClose }) {
   const panelRef = useRef(null);
   const inputRef = useRef(null);
 
-  const searchIndex = useMemo(buildSearchIndex, []);
-  const results = useMemo(() => {
-    if (!query.trim()) return [];
-    const q = query.trim().toLowerCase();
-    return searchIndex.filter((r) => r.title.toLowerCase().includes(q)).slice(0, 12);
-  }, [query, searchIndex]);
+  const searchIndex = useMemo(() => buildSearchIndex(), []);
+  const results = useMemo(() => searchEntries(searchIndex, query).slice(0, 12), [query, searchIndex]);
 
   useEffect(() => {
     if (!open) return;
@@ -349,7 +345,7 @@ function SearchResults({ results, onNavigate, query }) {
       {results.map((r) =>
         r.external ? (
           <a
-            key={r.href}
+            key={`${r.section}|${r.title}|${r.href}`}
             href={r.href}
             target="_blank"
             rel="noreferrer"
@@ -361,7 +357,7 @@ function SearchResults({ results, onNavigate, query }) {
           </a>
         ) : (
           <Link
-            key={r.href}
+            key={`${r.section}|${r.title}|${r.href}`}
             to={r.href}
             onClick={onNavigate}
             className="flex flex-col rounded-xl px-3.5 py-3 transition hover:bg-brand-50"
