@@ -12,12 +12,19 @@ export function slugify(text) {
     .replace(/^-+|-+$/g, "");
 }
 
-export default function ContentBlocks({ blocks = [], className = "" }) {
+export default function ContentBlocks({ blocks = [], className = "", reserveIds = [] }) {
   // The real source content occasionally repeats a sub-heading's exact wording
   // (a copy-paste slip in the source CMS — see src/lib/anchors.js) which would
   // otherwise produce duplicate DOM ids. Disambiguate deterministically so every
   // heading still gets a stable, unique anchor.
-  const usedIds = new Set();
+  //
+  // `reserveIds` additionally pre-claims ids that a *different* element on the
+  // same page already owns (e.g. a manually-set section wrapper id), so this
+  // instance's own headings are pushed to "-2"/"-3" instead of colliding with
+  // it. Pages that render several ContentBlocks instances side by side (each
+  // gets its own fresh id namespace otherwise) use this to keep every id on
+  // the page unique. Optional — omitting it preserves prior behavior exactly.
+  const usedIds = new Set(reserveIds);
   function makeId(text) {
     const base = slugify(text.replace(numberingPrefix, ""));
     if (!usedIds.has(base)) {
@@ -62,7 +69,7 @@ export default function ContentBlocks({ blocks = [], className = "" }) {
               {block.items.map((item, j) => (
                 <li key={j} className="flex gap-3 text-[15px] leading-relaxed text-ink-600">
                   <span className="mt-2.5 h-1.5 w-1.5 shrink-0 rounded-full bg-brand-400" />
-                  <span>{item}</span>
+                  <span className="min-w-0 [overflow-wrap:anywhere]">{item}</span>
                 </li>
               ))}
             </ul>
@@ -76,7 +83,7 @@ export default function ContentBlocks({ blocks = [], className = "" }) {
           );
         }
         return (
-          <p key={i} className="text-[15px] leading-relaxed text-ink-600 sm:text-base">
+          <p key={i} className="text-[15px] leading-relaxed text-ink-600 [overflow-wrap:anywhere] sm:text-base">
             {block.text}
           </p>
         );
