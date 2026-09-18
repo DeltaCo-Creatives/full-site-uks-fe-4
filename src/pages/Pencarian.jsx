@@ -3,19 +3,15 @@ import { Link } from "react-router-dom";
 import { Search, ArrowUpRight, ChevronRight } from "lucide-react";
 import PageHero from "../components/ui/PageHero";
 import Reveal from "../components/ui/Reveal";
-import { buildSearchIndex } from "../lib/searchIndex";
+import { buildSearchIndex, searchEntries } from "../lib/searchIndex";
 
 const SUGGESTIONS = ["Kesehatan Siswa", "UKS Mandiri", "Gizi Sekolah", "Cuci Tangan"];
 
 export default function Pencarian() {
   const [query, setQuery] = useState("");
-  const index = useMemo(buildSearchIndex, []);
+  const index = useMemo(() => buildSearchIndex(), []);
 
-  const results = useMemo(() => {
-    if (!query.trim()) return [];
-    const q = query.trim().toLowerCase();
-    return index.filter((r) => r.title.toLowerCase().includes(q) || r.section.toLowerCase().includes(q));
-  }, [query, index]);
+  const results = useMemo(() => searchEntries(index, query), [query, index]);
 
   return (
     <>
@@ -53,7 +49,7 @@ export default function Pencarian() {
               {results.map((r) =>
                 r.external ? (
                   <a
-                    key={r.href}
+                    key={`${r.section}|${r.title}|${r.href}`}
                     href={r.href}
                     target="_blank"
                     rel="noreferrer"
@@ -67,7 +63,7 @@ export default function Pencarian() {
                   </a>
                 ) : (
                   <Link
-                    key={r.href}
+                    key={`${r.section}|${r.title}|${r.href}`}
                     to={r.href}
                     className="flex items-center justify-between rounded-xl bg-white px-4 py-3.5 shadow-sm ring-1 ring-ink-100 transition hover:ring-brand-200"
                   >
