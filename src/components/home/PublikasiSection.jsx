@@ -71,7 +71,10 @@ export default function PublikasiSection() {
         />
 
         <div onMouseEnter={() => setPaused(true)} onMouseLeave={() => setPaused(false)}>
-          <PublikasiGrid items={active.data} variant={active.variant} />
+          {/* Remount on tab change so an open viewer modal from the previous
+              tab's variant always unmounts cleanly (restoring focus/scroll)
+              instead of vanishing mid-open when the variant prop switches. */}
+          <PublikasiGrid key={active.key} items={active.data} variant={active.variant} />
         </div>
 
         <div className="mt-8 text-center">
