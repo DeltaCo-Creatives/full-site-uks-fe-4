@@ -1,6 +1,7 @@
 import { useState } from "react";
 import PageHero from "../../components/ui/PageHero";
 import Reveal from "../../components/ui/Reveal";
+import SaihGalaKreasi from "../../components/program/SaihGalaKreasi";
 import { kaih } from "../../data/programs";
 
 export default function Kaih() {
@@ -58,6 +59,10 @@ export default function Kaih() {
           </p>
         </Reveal>
       </section>
+
+      <div className="border-t border-ink-100 bg-ink-50/40">
+        <SaihGalaKreasi />
+      </div>
     </>
   );
 }
