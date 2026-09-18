@@ -1,26 +1,23 @@
-// Re-modeled navigation tree. Every label, URL and grouping is carried over from the
-// real production nav (uks.kemendikdasmen.go.id `navItems` payload), just reorganized
-// away from a 3-level hover dropdown into flat sections + chip groups for the Explore overlay.
+// Navigation tree following the simplified dev sitemap (portal-uks.demo.or.id `navItems`),
+// with Sekolah Sehat kept under UKS/M. Rendered as flat sections + chip groups in the
+// Explore overlay rather than a hover dropdown.
 export const navSections = [
   {
     key: "uksm",
     title: "UKS/M",
-    blurb: "Profil, struktur, dan Trias UKS/M",
+    blurb: "Tentang, Trias, manajemen, dan stratifikasi UKS/M",
     items: [
-      { title: "Deskripsi Umum", href: "/uksm/deskripsi-umum" },
-      { title: "Tujuan", href: "/uksm/tujuan" },
-      { title: "Sasaran", href: "/uksm/sasaran" },
-      { title: "Tim Pembina UKS/M", href: "/uksm/struktur-organisasi/tim-pembina" },
-      { title: "Tim Pelaksana UKS/M di Sekolah/Madrasah", href: "/uksm/struktur-organisasi/tim-pelaksana" },
+      { title: "Tentang UKS/M", href: "/uksm/tentang" },
+      { title: "Trias UKS/M", href: "/uksm/trias" },
       { title: "Manajemen UKS/M", href: "/uksm/manajemen" },
-      { title: "Stratifikasi UKS/M", href: "https://stratifikasiuks.org/", external: true },
+      { title: "Stratifikasi UKS/M", href: "/uksm/stratifikasi" },
     ],
     groupLabel: "Trias UKS/M",
     groups: [
       {
         title: "Pendidikan Kesehatan",
         number: 1,
-        href: "/trias/pendidikan-kesehatan",
+        href: "/uksm/trias#pendidikan-kesehatan",
         subItems: [
           "Literasi Kesehatan",
           "Perilaku Hidup Bersih dan Sehat",
@@ -34,7 +31,7 @@ export const navSections = [
       {
         title: "Pelayanan Kesehatan",
         number: 2,
-        href: "/trias/pelayanan-kesehatan",
+        href: "/uksm/trias#pelayanan-kesehatan",
         subItems: [
           "Penjaringan Kesehatan dan Pemeriksaan Berkala",
           "Imunisasi",
@@ -45,7 +42,7 @@ export const navSections = [
       {
         title: "Pembinaan Lingkungan Sekolah Sehat",
         number: 3,
-        href: "/trias/pembinaan-lingkungan",
+        href: "/uksm/trias#pembinaan-lingkungan",
         subItems: [
           "Sanitasi Sekolah",
           "Pembinaan Kantin Sehat",
@@ -57,16 +54,16 @@ export const navSections = [
     ],
     sekolahSehat: {
       title: "Sekolah Sehat",
-      href: "/sekolah-sehat/gerakan-sekolah-sehat",
+      href: "/uksm/sekolah-sehat",
       items: [
+        { title: "Gerakan Sekolah Sehat", href: "/uksm/sekolah-sehat" },
+        { title: "Sehat Bergizi", href: "/uksm/sekolah-sehat#sehat-bergizi" },
+        { title: "Sehat Fisik", href: "/uksm/sekolah-sehat#sehat-fisik" },
+        { title: "Sehat Imunisasi", href: "/uksm/sekolah-sehat#sehat-imunisasi" },
+        { title: "Sehat Jiwa", href: "/uksm/sekolah-sehat#sehat-jiwa" },
+        { title: "Sehat Lingkungan", href: "/uksm/sekolah-sehat#sehat-lingkungan" },
+        { title: "Bahan Advokasi GSS", href: "/uksm/sekolah-sehat#bahan-advokasi" },
         { title: "Gerakan Madrasah Sehat", href: "https://madrasah.kemenag.go.id/madrasahsehat/", external: true },
-        { title: "Gerakan Sekolah Sehat", href: "/sekolah-sehat/gerakan-sekolah-sehat" },
-        { title: "Sehat Bergizi", href: "/sekolah-sehat/gerakan-sekolah-sehat#sehat-bergizi" },
-        { title: "Sehat Fisik", href: "/sekolah-sehat/gerakan-sekolah-sehat#sehat-fisik" },
-        { title: "Sehat Imunisasi", href: "/sekolah-sehat/gerakan-sekolah-sehat#sehat-imunisasi" },
-        { title: "Sehat Jiwa", href: "/sekolah-sehat/gerakan-sekolah-sehat#sehat-jiwa" },
-        { title: "Sehat Lingkungan", href: "/sekolah-sehat/gerakan-sekolah-sehat#sehat-lingkungan" },
-        { title: "Bahan Advokasi GSS", href: "/sekolah-sehat/bahan-advokasi" },
       ],
     },
   },
@@ -79,7 +76,6 @@ export const navSections = [
       { title: "Makan Bergizi Gratis (MBG)", href: "/program/mbg" },
       { title: "Cek Kesehatan Gratis (CKG) Sekolah", href: "/program/ckg" },
       { title: "Gerakan Sekolah ASRI", href: "/program/asri" },
-      { title: "Manajemen UKS/M", href: "/uksm/manajemen" },
     ],
   },
   {
@@ -87,8 +83,8 @@ export const navSections = [
     title: "Mitra",
     blurb: "Kemitraan dan kolaborasi program",
     items: [
+      { title: "Tentang Mitra UKS/M", href: "/mitra/tentang" },
       { title: "Panduan Kemitraan", href: "/mitra/panduan-kemitraan" },
-      { title: "Pendaftaran Mitra", href: "/mitra/pendaftaran-mitra" },
       { title: "Mitra Kami", href: "/mitra/mitra-kami" },
       { title: "Aktivitas Mitra", href: "/mitra/aktivitas" },
       { title: "Dukungan Mitra", href: "/mitra/dukungan-mitra" },
