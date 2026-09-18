@@ -1,6 +1,8 @@
+import { Link } from "react-router-dom";
 import PageHero from "../../components/ui/PageHero";
 import Reveal from "../../components/ui/Reveal";
 import { uptBercerita } from "../../data/informasi";
+import { getSlug } from "../../lib/slug";
 
 export default function UptBercerita() {
   return (
@@ -17,7 +19,9 @@ export default function UptBercerita() {
             <Reveal
               key={item.judul}
               delay={i * 0.06}
-              className="rounded-2xl border border-ink-100 bg-white p-6 transition hover:shadow-lg hover:shadow-ink-900/5"
+              className="block rounded-2xl border border-ink-100 bg-white p-6 transition hover:shadow-lg hover:shadow-ink-900/5"
+              as={Link}
+              to={`/informasi/upt-bercerita/${getSlug(item)}`}
             >
               <div className="mb-2 flex items-center gap-3">
                 <span className="rounded-full bg-sky-50 px-2.5 py-1 text-xs font-semibold text-sky-700">{item.kategori}</span>
