@@ -2,10 +2,15 @@ import { Link } from "react-router-dom";
 import { ArrowRight } from "lucide-react";
 import SectionHeading from "../ui/SectionHeading";
 import Reveal from "../ui/Reveal";
-import { partners } from "../../data/home";
+import { partners, ministryLinks } from "../../data/home";
+
+// Ministries already appear as dedicated logos in the Tautan Terkait section,
+// so they're excluded here to avoid duplicating them in the partner marquee.
+const ministryLogos = new Set(ministryLinks.map((m) => m.logo));
 
 export default function MitraMarquee() {
-  const loop = [...partners, ...partners];
+  const marqueePartners = partners.filter((p) => !ministryLogos.has(p.logo));
+  const loop = [...marqueePartners, ...marqueePartners];
 
   return (
     <section className="overflow-hidden bg-white py-20 sm:py-24">

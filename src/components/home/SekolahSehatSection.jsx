@@ -56,7 +56,7 @@ export default function SekolahSehatSection() {
             <h3 className="mt-5 font-display text-2xl font-semibold text-ink-900">{current.title}</h3>
             <p className="mt-3 text-ink-500">{current.description}</p>
             <Link
-              to={`/sekolah-sehat/gerakan-sekolah-sehat#${current.anchor}`}
+              to={`/uksm/sekolah-sehat#${current.anchor}`}
               className="mt-6 inline-flex items-center gap-1.5 text-sm font-semibold text-brand-600 hover:gap-2.5 transition-all"
             >
               Baca detail Gerakan Sekolah Sehat <ArrowRight size={15} />
