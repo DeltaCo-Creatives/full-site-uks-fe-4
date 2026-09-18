@@ -3,6 +3,7 @@ import { ArrowRight } from "lucide-react";
 import SectionHeading from "../ui/SectionHeading";
 import NewsCard from "../ui/NewsCard";
 import { latestBerita } from "../../data/home";
+import { getSlug } from "../../lib/slug";
 
 export default function BeritaSection() {
   return (
@@ -21,7 +22,7 @@ export default function BeritaSection() {
       />
       <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
         {latestBerita.map((item, i) => (
-          <NewsCard key={item.slug} item={item} delay={i * 0.06} />
+          <NewsCard key={item.slug} item={item} href={`/informasi/berita/${getSlug(item)}`} delay={i * 0.06} />
         ))}
       </div>
     </section>
